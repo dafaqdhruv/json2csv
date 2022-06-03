@@ -38,20 +38,17 @@ fn main() {
     
     
     // get headers 
-    // let mut headers =  HashSet::new();
+    let mut headers =  HashSet::new();
 
     for i in json_content.as_array() {
-        //  println!("{:#?}",i);
         for j in i {
-                // println!("{:#?}",j);
-                for key in j.as_array().unwrap() {
-                println!("{:#?}",key);
-                println!("ok")
-                // headers.insert(key);
+                for key in j.as_object().unwrap().keys() {
+                    headers.insert(key.to_string());
             }
         }
     }
-    
+
+    dbg!(headers);
     
 
     let len = filename.len()-4;
