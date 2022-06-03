@@ -1,6 +1,6 @@
-use std::env;
 use std::fs;
 use std::io;
+mod convert;
 
 fn get_file_name () -> String {
 
@@ -13,11 +13,14 @@ fn get_file_name () -> String {
 
 fn convert2csv(data : String) -> String {
 
-    // read all attributes
+    // get all attribute headers
+    let headers = parse_headers(data);
 
-    // store their data
+    // serialize their data
+    // for every json record, run parse_record
 
     // output csv formatted string
+
 }
 
 fn main() {
